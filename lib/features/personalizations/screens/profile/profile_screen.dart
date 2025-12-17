@@ -10,9 +10,9 @@ import '../../../../common/images/SCircularImage.dart';
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/ssectionheader.dart';
 import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/image_string.dart';
+
 import '../../../../utils/constants/size.dart';
-import '../../../shop/model/cart_item_model.dart';
+
 import '../../controllers/profile_controller.dart';
 class ProfileScreen extends StatelessWidget {
 

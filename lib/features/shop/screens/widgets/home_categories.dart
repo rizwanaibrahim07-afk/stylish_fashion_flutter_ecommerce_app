@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stylish_fashion/features/shop/controllers/categoryController.dart';
-import 'package:stylish_fashion/features/shop/controllers/productcontroller.dart';
-import 'package:stylish_fashion/features/shop/controllers/subcategoryController.dart';
-import 'package:stylish_fashion/features/shop/model/categoryModel.dart';
-import 'package:stylish_fashion/features/shop/model/product_model.dart';
-import 'package:stylish_fashion/features/shop/model/subcategorymodel.dart';
+
 
 import '../../../../common/widgets/SVerticalimage/SVerticalimage.dart';
-import '../../../../utils/constants/image_string.dart';
-import '../../model/cart_item_model.dart';
+
 import '../sub category/sub_categories.dart';
 class SHomeCategories extends StatelessWidget {
 

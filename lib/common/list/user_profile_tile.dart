@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../features/personalizations/controllers/profile_controller.dart';
-import '../../utils/constants/image_string.dart';
+
 import '../images/SCircularImage.dart';
 class SUserProfiletile extends StatelessWidget {
  final ProfileController controller=Get.put(ProfileController());

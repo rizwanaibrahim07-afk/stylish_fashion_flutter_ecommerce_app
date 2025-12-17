@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/constants/colors.dart';
+
 import '../../utils/constants/size.dart';
 import '../../utils/helpers/helperfunctions.dart';
 class SCircularImage extends StatelessWidget {
@@ -17,7 +17,7 @@ class SCircularImage extends StatelessWidget {
   final String? image;
   @override
   Widget build(BuildContext context) {
-    final dark=SHelperFunctions.isDarkMode(context);
+
     return Container(
         width:width,
         height:height,
