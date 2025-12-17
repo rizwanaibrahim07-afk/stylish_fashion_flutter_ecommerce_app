@@ -35,7 +35,7 @@ class WishlistScreen extends StatelessWidget {
       body:Obx(
           (){
             if(wishlistController.wishlistProducts.isEmpty){
-              return Text('no items in wishlist');
+              return Center(child: Text('no items in wishlist'));
             }
             return SingleChildScrollView(
               child:  SGridlayout(

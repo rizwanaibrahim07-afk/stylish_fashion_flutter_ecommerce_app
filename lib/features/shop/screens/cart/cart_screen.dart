@@ -16,29 +16,34 @@ final controller=Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
-    return Obx((){
+    return  Scaffold(appBar: SAppbar(title: Text('Cart', style: Theme
+        .of(context)
+        .textTheme
+        .headlineMedium), showBackArrow: true,),
+      body: Obx((){
           if (controller.isLoading.value)
             return Center(child: CircularProgressIndicator());
           if (controller.cartItems.isEmpty) {
             return Center(child: Text('No product added to cart'));
           }
-          return Scaffold(appBar: SAppbar(title: Text('Cart', style: Theme
-              .of(context)
-              .textTheme
-              .headlineMedium), showBackArrow: true,),
-            body: Padding(padding: EdgeInsets.all(SSizes.defaultSpace),
-              child: SCartProducts(),),
+            return Padding(padding: EdgeInsets.all(SSizes.defaultSpace),
+              child: Column(
+                children: [
+                  SCartProducts(),
+                  SizedBox(height: SSizes.spaceBtwSections,),
+              Padding(
+                padding: const EdgeInsets.all(SSizes.defaultSpace),
+                child: SizedBox(width: double.infinity,
+                  child: ElevatedButton(onPressed: () {
 
-            bottomNavigationBar: Padding(
-              padding: const EdgeInsets.all(SSizes.defaultSpace),
-              child: ElevatedButton(onPressed: () {
-
-                  Get.to(CheckoutScreen());},
-                child: Text('Checkout \$${controller.calculateTotal}'),
+                    Get.to(CheckoutScreen());},
+                    child: Text('Checkout \$${controller.calculateTotal}'),
+                  ),
+                ),
               ),
-            ),
-          );
-        });
+                ],
+              ),);
+      }),);
   }
 
 }
