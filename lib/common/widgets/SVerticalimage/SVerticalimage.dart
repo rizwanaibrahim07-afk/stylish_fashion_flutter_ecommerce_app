@@ -34,7 +34,7 @@ class SverticalimageText extends StatelessWidget {
             ),
             SizedBox(height:SSizes.spaceBtwItem/2),
             SizedBox(height:53,
-              child: Text(title,style: Theme.of(context).textTheme.labelMedium,maxLines: 1,
+              child: Text(title,style: Theme.of(context).textTheme.labelMedium?.copyWith(color: Colors.white),maxLines: 1,
                 overflow: TextOverflow.ellipsis, ),
             )
           ],

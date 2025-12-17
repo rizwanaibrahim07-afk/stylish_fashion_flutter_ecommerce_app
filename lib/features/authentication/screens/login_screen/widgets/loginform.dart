@@ -30,6 +30,7 @@ class Loginform extends StatelessWidget {
             children: [
               SizedBox(height: SSizes.md,),
               TextFormField(
+                keyboardType: TextInputType.text,
                 validator: (value) => SValidator.validateEmail(value),
                 controller: controller.emailcontroller,
                 decoration: const InputDecoration(prefixIcon: Icon(Icons

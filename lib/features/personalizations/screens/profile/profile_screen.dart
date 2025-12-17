@@ -47,8 +47,10 @@ final value=input.text.trim();
                return SingleChildScrollView(child: Column(
                  children: [
                    SizedBox(width:double.infinity,child: SCircularImage(
-
-                     image: controller.avatarUrl.value??SImages.user1,
+                     isNetworkImage:controller.avatarUrl.value.isNotEmpty ,
+                     image: controller.avatarUrl.value.isNotEmpty
+                         ? controller.avatarUrl.value
+                         : 'assets/images/user/user1.jpg',
                      width: 100,height: 100,),),
                    GestureDetector(onTap:()async{
                      final picker=ImagePicker();

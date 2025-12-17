@@ -7,14 +7,14 @@ class SCircularImage extends StatelessWidget {
   const SCircularImage({
     super.key,  this.fit, this.isNetworkImage=false,
     this.backgroundColor, this.overlayColor, this.width, this.height,
-    this.padding=const EdgeInsets.all(SSizes.md), required this.image,
+    this.padding=const EdgeInsets.all(SSizes.md),  this.image,
   });
   final BoxFit? fit;
-  final bool? isNetworkImage;
+  final bool isNetworkImage;
   final Color? backgroundColor,overlayColor;
   final double? width,height;
   final EdgeInsetsGeometry padding;
-  final String image;
+  final String? image;
   @override
   Widget build(BuildContext context) {
     final dark=SHelperFunctions.isDarkMode(context);
@@ -26,8 +26,13 @@ class SCircularImage extends StatelessWidget {
           color: Colors.transparent,
 
         ),
-        child:
-        Image(image:!isNetworkImage!? NetworkImage(image):AssetImage(image) as ImageProvider,
-        fit: fit,color:overlayColor));
+        child:ClipRRect(borderRadius: BorderRadius.circular(100),
+            child: Center(
+
+          child: Image(image:isNetworkImage
+              ? NetworkImage(image!) as ImageProvider
+                    : AssetImage(image!),
+          fit: fit,color:overlayColor),
+        ),),);
   }
 }

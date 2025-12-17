@@ -78,17 +78,22 @@ class Signup extends StatelessWidget {
                   SizedBox(height: SSizes.spaceBtwItem,),
                   SizedBox(width:double.infinity,child:
                   Obx(()=>controller.isLoading.value?CircularProgressIndicator():
-                  ElevatedButton(onPressed:()=>controller.signup(controller.email.text,controller.password.text,),
-                      child: Text('Create Account'))),)
+                  ElevatedButton(onPressed:(){
+                    if(controller.signupFormKey.currentState!.validate()){
+                    controller.signup(controller.email.text,controller.password.text,);}
 
-                ],
-              )),
-              SizedBox(height: SSizes.spaceBtwSections,),
-              Row(mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Divider(color: dark?SColors.darkGrey:SColors.grey,thickness:0.5,indent: 60,endIndent: 5,),
-                  Text('Or Sign in with'),
-                  Divider(color: dark?SColors.darkGrey:SColors.grey,thickness:0.5,indent: 5,endIndent: 60,),
+    },
+    child: Text('Create Account'))),)
+
+    ],
+    )),
+    SizedBox(height: SSizes.spaceBtwSections,),
+    Row(mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+    Divider(color: dark?SColors.darkGrey:SColors.grey,thickness:0.5,indent: 60,endIndent: 5,),
+    Text('Or Sign in with'),
+    Divider(color: dark?SColors.darkGrey
+    :SColors.grey,thickness:0.5,indent: 5,endIndent: 60,),
                 ],
               ),
               SizedBox(height: SSizes.spaceBtwItem,),

@@ -41,7 +41,7 @@ final CartController cartcontroller=Get.find<CartController>();
                  SAppbar(title:Column(crossAxisAlignment: CrossAxisAlignment.start,
            children: [
              Text('Stylish ',style: Theme.of(context).textTheme.headlineMedium!.apply(color: SColors.white),),
-             Text('Fashion',style: Theme.of(context).textTheme.labelLarge!.apply(color: Colors.black),),
+             Text('Fashion',style: Theme.of(context).textTheme.labelLarge!.apply(color: Colors.white),),
            ],),
                         actions: [
                           CartCounter(),

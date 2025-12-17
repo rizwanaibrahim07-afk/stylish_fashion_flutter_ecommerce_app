@@ -35,7 +35,7 @@ class SHomeCategories extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_,index){
              final category=controller.categories[index];
-                  return SverticalimageText(image:category.imageUrl,
+                  return SverticalimageText(image:category.imageUrl,textColor: Colors.white,
                     backgroundcolor: Colors.white, title: category.name,
                     onTap: ()=>Get.to(()=>SubCategoriesScreen(category:category,  )),);
                 }),

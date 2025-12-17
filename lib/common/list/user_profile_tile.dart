@@ -18,7 +18,10 @@ final VoidCallback onPressed;
         final user=controller.profile.value;
 
         if(controller.isLoading.value){ return const CircularProgressIndicator();}
-        return ListTile(leading:  SCircularImage(image:controller.avatarUrl.value??SImages.user1,
+        return ListTile(leading:  SCircularImage(isNetworkImage:controller.avatarUrl.value.isNotEmpty ,
+          image:controller.avatarUrl.value.isNotEmpty
+            ? controller.avatarUrl.value
+            : 'assets/images/user/user1.jpg',
             height: 60,width: 60,padding:EdgeInsets.all(0),),
           title: Text(user?.userName??'',style: Theme.of(context).textTheme.labelMedium!.apply(color:Colors.white ),),
           subtitle:Text(user?.email??'',
