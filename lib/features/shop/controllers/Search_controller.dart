@@ -4,6 +4,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import '../model/product_model.dart';
 
 class SearchProductController extends GetxController {
+  static SearchProductController get instance=>Get.find();
   RxString searchQuery = ''.obs;
   RxList<ProductModel> searchResults = <ProductModel>[].obs;
   RxBool isLoading = false.obs;

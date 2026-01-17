@@ -32,13 +32,15 @@ class Filteredproduct extends StatelessWidget {
           child: Column(
             children: [
               // dropdown
-              DropdownButtonFormField(
+              DropdownButtonFormField(value: 'Name',
                 decoration: const InputDecoration(prefixIcon: Icon(Icons.sort)),
-                items: ['Name', 'High Price', 'Lower Price', 'Sale', 'Newest']
+                items: ['Name', 'High Price', 'Lower Price', 'Discount']
                     .map((option) =>
                     DropdownMenuItem(value: option, child: Text(option)))
                     .toList(),
-                onChanged: (value) {},
+                onChanged: (value) {if(value!=null){
+                  controller.sortProducts(value);
+                }},
               ),
               SizedBox(height: SSizes.spaceBtwItem),
               Obx(() {

@@ -11,8 +11,8 @@ class SSearchBar extends StatelessWidget {
 final  controller=Get.put(SearchProductController());
    SSearchBar({
     super.key,  this.showBackground=true,  this.showBorder=true,
-    this.padding=const EdgeInsets.symmetric(horizontal: SSizes.defaultSpace)
-  });
+    this.padding=const EdgeInsets.all(8.0)});
+
 
  final EdgeInsetsGeometry padding;
   final bool showBackground,showBorder;

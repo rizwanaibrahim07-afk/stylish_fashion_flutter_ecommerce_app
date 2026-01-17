@@ -37,4 +37,21 @@ class ProductsbySubCategoryController extends GetxController{
       isLoading.value=false;
     }
   }
+  void sortProducts(String sortOption) {
+    switch (sortOption) {
+      case 'Name':
+        filteredproducts.sort((a, b) => a.title.toLowerCase().compareTo(b.title.toLowerCase()));
+        break;
+      case 'High Price':
+        filteredproducts.sort((a, b) => b.price.compareTo(a.price));
+        break;
+      case 'Lower Price':
+        filteredproducts.sort((a, b) => a.price.compareTo(b.price));
+        break;
+
+      case 'Discount':
+        filteredproducts.sort((a, b) => (b.salePrice ?? 0).compareTo(a.salePrice ?? 0));
+        break;
+    }
+  }
 }

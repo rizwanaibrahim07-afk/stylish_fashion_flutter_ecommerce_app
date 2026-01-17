@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:stylish_fashion/features/shop/controllers/Search_controller.dart';
 import 'package:stylish_fashion/features/shop/controllers/productcontroller.dart';
 
 import '../../../../common/layout/SGridlayout.dart';
@@ -16,13 +17,18 @@ class SortingProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
         children: [
-          //dropdown
+
+    //dropdown
           DropdownButtonFormField(
               decoration: const InputDecoration(prefixIcon: Icon(Icons.sort)),
-
-              items: ['Name','High Price','Lower Price','Sale','Newest'].
+              value: 'Name',
+              items: ['Name','High Price','Lower Price','Discount'].
               map((option)=>DropdownMenuItem(value:option,child: Text(option))).toList(),
-              onChanged:(value){}),
+              onChanged:(value){
+                if(value!=null) {
+                  controller.sortProducts(value);
+                }
+              }),
           SizedBox(height: SSizes.spaceBtwItem,),
     Obx(
     (){if(controller.isLoading.value){

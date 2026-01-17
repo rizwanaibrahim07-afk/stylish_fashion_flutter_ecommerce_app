@@ -15,7 +15,7 @@ class Productcontroller extends GetxController {
 
   var products=<ProductModel>[].obs;
 
-
+  var allProducts = <ProductModel>[].obs;
   var isLoading=false.obs;
   var selectedsize=''.obs;
 
@@ -30,6 +30,7 @@ class Productcontroller extends GetxController {
       final data=await supabase.from('products').
       select();
       products.value=data.map((item)=>ProductModel.fromJson(item)).toList();
+      allProducts.value=data.map((item)=>ProductModel.fromJson(item)).toList();
     }catch (e){
       print('load products error:$e');
 
@@ -45,6 +46,33 @@ class Productcontroller extends GetxController {
   double getDiscountPercent(double price,double saleprice){
     if(price==0)return 0;
     return ((price-saleprice)/price)*100;
+  }
+  void search(String query) {
+    if (query.isEmpty) {
+      products.assignAll(allProducts);
+    } else {
+      products.assignAll(
+          allProducts.where((p) => p.title.toLowerCase().contains(query.toLowerCase())).toList()
+      );
+    }
+  }
+
+  void sortProducts(String sortOption) {
+  switch (sortOption) {
+  case 'Name':
+  products.sort((a, b) => a.title.toLowerCase().compareTo(b.title.toLowerCase()));
+  break;
+  case 'High Price':
+  products.sort((a, b) => b.price.compareTo(a.price));
+  break;
+  case 'Lower Price':
+  products.sort((a, b) => a.price.compareTo(b.price));
+  break;
+
+  case 'Discount':
+  products.sort((a, b) => (b.salePrice ?? 0).compareTo(a.salePrice ?? 0));
+  break;
+  }
   }
 
 

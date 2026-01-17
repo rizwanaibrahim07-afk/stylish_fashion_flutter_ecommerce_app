@@ -47,7 +47,6 @@ final CartController cartcontroller=Get.find<CartController>();
                           CartCounter(),
                         ],),
                  //....Categories...
-
                  Padding(padding: EdgeInsets.all(SSizes.spaceBtwItem),
                  child: Column(
                    children: [
